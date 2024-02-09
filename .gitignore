@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # android
-/src-tauri/gen/
+/src-tauri/gen/android/
