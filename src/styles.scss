@@ -19,12 +19,12 @@ img {
 }
 
 .rigcontainer {
-  margin-top: 10em;
+  margin-top: 2em;
   button {
-    padding-top: 20vh;
+    padding-top: 25vh;
     padding-bottom: 20vh;
-    padding-left: 15vw;
-    padding-right: 15vw;
+    padding-left: 22vw;
+    padding-right: 22vw;
     background-color: #f6f6f6;
   }
 }
@@ -70,7 +70,7 @@ button {
   outline: none;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
     color: #f6f6f6;
     background-color: #2f2f2f;

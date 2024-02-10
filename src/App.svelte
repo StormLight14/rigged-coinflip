@@ -7,6 +7,7 @@
 
   function reset() {
     hideRigButtons = false;
+    currentMode = "off";
   }
 </script>
 
@@ -17,7 +18,6 @@
     <Coin rigged={currentMode} on:reset={reset}/>
     {#if hideRigButtons == false}
       <div class="rigcontainer">
-        <ModeButton buttonMode={"off"} on:changeMode={(e) => {currentMode = e.detail.mode; hideRigButtons = true;}}/>
         <ModeButton buttonMode={"heads"} on:changeMode={(e) => {currentMode = e.detail.mode; hideRigButtons = true;}}/>
         <ModeButton buttonMode={"tails"} on:changeMode={(e) => {currentMode = e.detail.mode; hideRigButtons = true;}}/>
       </div>
