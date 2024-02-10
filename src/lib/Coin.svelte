@@ -1,7 +1,9 @@
 <script lang="ts">
     import { fade } from 'svelte/transition';
+    import {createEventDispatcher} from "svelte";
     export let rigged = "off";
 
+    const dispatch = createEventDispatcher();
     const choices = ["heads", "tails"];
     const animation_length = 200;
 
@@ -32,6 +34,8 @@
         setTimeout(() => {
             showFlipButton = true;
         }, animation_length / 2);
+
+        dispatch("reset");
     }
 </script>
 
