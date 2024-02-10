@@ -56,6 +56,6 @@
 
 <p>
     {#if rigged != "off" && rigged != "heads" && rigged != "tails"}
-        Coin has invalid rig mode.
+        Coin has invalid rig mode: {rigged}
     {/if}
 </p>

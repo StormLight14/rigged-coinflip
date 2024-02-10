@@ -2,7 +2,7 @@
     import {createEventDispatcher} from "svelte";
     const dispatch = createEventDispatcher();
 
-    function changeMode(mode) {
-
-    }
+    export let buttonMode;
 </script>
+
+<button on:click={() => dispatch("changeMode", {mode: buttonMode}) }></button>
