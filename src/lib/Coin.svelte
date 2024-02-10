@@ -1,59 +1,61 @@
 <script lang="ts">
     import { fade } from 'svelte/transition';
+    export let rigged = "off";
 
     const choices = ["heads", "tails"];
-    export let rigged = "none";
+    const animation_length = 200;
 
-    let flipResult = "heads";
+    let flipResult;
     let showFlipButton = true;
     let showResetButton = false;
     let showCoin = false;
 
     function flipCoin() {
-        if (rigged != "none") {
+        if (rigged != "off") {
             flipResult = rigged;
-        } else if (rigged == "none") {
+        } else {
             flipResult = choices[Math.floor(choices.length * Math.random())];
         }
+
         showCoin = true;
-        showResetButton = true;
         showFlipButton = false;
+
+        setTimeout(() => {
+            showResetButton = true;
+        }, animation_length / 2);
     }
 
     function reset() {
         showCoin = false;
         showResetButton = false;
-        showFlipButton = true;
+
+        setTimeout(() => {
+            showFlipButton = true;
+        }, animation_length / 2);
     }
 </script>
 
 {#if showFlipButton}
-    <button on:click={flipCoin}>
+    <button transition:fade={{delay: 0, duration: animation_length / 2}} on:click={flipCoin}>
         Flip a coin!
     </button>
 {/if}
 
 {#if showResetButton}
-    <button on:click={reset}>
+    <button transition:fade={{delay: 0, duration: animation_length / 2}} on:click={reset}>
         Reset
     </button>
 {/if}
 
 {#if showCoin}
     <div>
-        <img transition:fade src="/coin-{flipResult}.png" alt="Coin" width="200"/>
+        <img transition:fade={{delay: 0, duration: animation_length}} src="/coin-{flipResult}.png" alt="Coin" width="200"/>
     </div>
 {/if}
 
 
 <p>
-    {#if rigged === "none"}
-        Coin is not rigged to win.
-    {:else if rigged === "heads"}
-        Coin is rigged for Heads to win.
-    {:else if rigged === "tails"}
-        Coin is rigged for Tails to win.
-    {:else}
-        Coin has invalid thing
+    {#if rigged != "off" && rigged != "heads" && rigged != "tails"}
+        Coin has invalid rig mode.
     {/if}
 </p>

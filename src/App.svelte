@@ -6,6 +6,6 @@
   <h1>Totally Normal Coin Flipper</h1>
 
   <div class="row">
-    <Coin rigged={"heads"}/>
+    <Coin rigged={"off"}/>
   </div>
 </main>
