@@ -7,7 +7,7 @@
     const choices = ["heads", "tails"];
     const animation_length = 200;
 
-    let flipResult;
+    let flipResult: String;
     let showFlipButton = true;
     let showResetButton = false;
     let showCoin = false;
